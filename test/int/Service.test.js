@@ -10,7 +10,7 @@ const {
 describe("Service INT", function(){
 
     const moduleFile = "./../../test/TestProcess.js";
-    const faceHugger = new FaceHugger(moduleFile, new Logger({level: "INFO"}));
+    const faceHugger = new FaceHugger(moduleFile, new Logger({level: "DEBUG"}));
 
     it("should be able to start process", function(done){
         faceHugger.start({});
