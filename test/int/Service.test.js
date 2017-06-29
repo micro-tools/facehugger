@@ -41,7 +41,7 @@ describe("Service INT", function(){
     });
     
    it("should be able to catch error for bad task", function(done){
-        return faceHugger.fork.runTask("test-error", {arg1: 321}).catch(error => {
+        faceHugger.fork.runTask("test-error", {arg1: 321}).catch(error => {
             console.log(error);
             done();
         });
