@@ -26,9 +26,25 @@ describe("Service INT", function(){
 
     it("should still be alive", function(){
         return faceHugger.fork.pullMetrics().then(metrics => {
+            console.log(metrics);
             assert.ok(metrics);
             return true;
         })
+    });
+    
+    it("should be able to run task", function(){
+        return faceHugger.fork.runTask("test-cb", {arg1: 123}).then(result => {
+            console.log(result);
+            assert.ok(result);
+            return true;
+        })
+    });
+    
+   it("should be able to catch error for bad task", function(done){
+        return faceHugger.fork.runTask("test-error", {arg1: 321}).catch(error => {
+            console.log(error);
+            done();
+        });
     });
 
     it("should be able to stop process", function(done){
