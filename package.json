@@ -1,6 +1,6 @@
 {
   "name": "facehugger",
-  "version": "0.9.0",
+  "version": "1.0.0",
   "description": "back-packed child-process with callback stack",
   "main": "index.js",
   "scripts": {

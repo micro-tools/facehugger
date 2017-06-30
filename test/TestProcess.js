@@ -19,7 +19,7 @@ fork.register("test-cb", (data, callback) => {
     setTimeout(() => {
         fork.log(data);
         callback(null, "yeah")
-    }, 125);
+    }, 80);
 });
 
 fork.register("test-error", (data, callback) => {
@@ -29,4 +29,39 @@ fork.register("test-error", (data, callback) => {
     }, 50);
 });
 
+fork.register("test-timeout", (data, callback) => {
+    setTimeout(() => {
+        fork.log(data);
+        callback(null, "ow")
+    }, 125);
+});
+
+fork.register("test-throw", (data, callback) => {
+    process.nextTick(() => {
+        throw new Error("lol cb threw");
+    });
+});
+
+fork.register("test-exit", (data, callback) => {
+    process.exit(0);
+});
+
 fork.connect(pc, mc);
+
+/*
+fork._handleMessage({
+    type: "data",
+    content: {}
+});
+
+setTimeout(() => {
+    fork._handleMessage({
+        type: "task",
+        content: {
+            task: "test-cb",
+            identifier: "1",
+            args: {}
+        }
+    });
+}, 500);
+*/
