@@ -38,6 +38,12 @@ describe("Service INT", function(){
         });
     });
 
+    it("should be able to log on different levels", function(){
+        return faceHugger.fork.runTask("log-test", {}).catch(error => {
+            assert.ifError(error);
+        });
+    });
+
     it("should be able to catch error for throwing task", function(done){
         faceHugger.fork.runTask("test-throw", {arg1: 456}).catch(error => {
             //console.log(error);

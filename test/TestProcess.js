@@ -46,6 +46,14 @@ fork.register("test-exit", (data, callback) => {
     process.exit(0);
 });
 
+fork.register("log-test", (data, callback) => {
+    fork.log("test", "debug");
+    fork.log("test", "info");
+    fork.log("test", "warn");
+    fork.log("test", "error");
+    callback(null);
+});
+
 fork.connect(pc, mc);
 
 /*
