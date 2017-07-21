@@ -1,6 +1,6 @@
 {
   "name": "facehugger",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "back-packed child-process with callback stack",
   "main": "index.js",
   "scripts": {
@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/krystianity/facehugger#readme",
   "dependencies": {
+    "async": "^2.5.0",
     "bluebird": "^3.5.0",
     "child-process-debug": "https://github.com/micro-tools/child-process-debug.git",
     "uuid": "^3.1.0"

@@ -3,6 +3,14 @@ back-packed child-process with callback stack and more batteries included
 
 [![Build Status](https://travis-ci.org/krystianity/facehugger.svg?branch=master)](https://travis-ci.org/krystianity/facehugger)
 
+# Info
+
+- allows you to spawn a child process to offload work
+- implements a simple interface to ensure the worker is always running (e.g. restarts automatically)
+- interface allows event (send/receive) as well as direct (sync promise e.g. `runTask().then(result => {})` actions
+- also ships with `runQueueTask().then(result => {})` api to enqueue worker requests (prevent overload/enable backpressure)
+- child and parent processes stay debuggable
+
 # Install via
 
 ```

@@ -112,6 +112,25 @@ describe("Service INT", function(){
         });
     });
 
+    it("should be able to run task through queue", function(){
+
+        faceHugger.setQueueConcurrency(1);
+        const p = faceHugger.runQueueTask("test-cb", {arg1: 789});
+
+        //console.log(faceHugger.getQueueSize());
+        assert.ok(faceHugger.getQueueSize());
+
+        return p.then(result => {
+            //console.log(result);
+            assert.ok(result);
+
+            //console.log(faceHugger.getQueueSize());
+            assert.ifError(faceHugger.getQueueSize());
+
+            return true;
+        });
+    });
+
     it("should be able to stop fork without restart", function(done){
         faceHugger.fork.kill(true);
         setTimeout(done, 1000);
